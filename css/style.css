@@ -262,3 +262,14 @@ header {
 .btn-back:hover {
   background: #33ffff;
 }
+.logo {
+  font-size: 1.5rem;
+  cursor: pointer;
+  user-select: none;
+  color: #0ff;
+  text-decoration: none; /* <--- remove underline */
+}
+.logo:hover {
+  color: #33ffff;
+}
+

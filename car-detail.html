@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Car Details | Modern Car Sales</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🚗 ModernCars</div>
+    <ul class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cars.html">Cars</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+    <div class="profile"><span>FP</span></div>
+  </nav>
+
+  <main>
+    <div class="car-detail" id="carDetail"></div>
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="index.html" class="btn-back">← Back to Home</a>
+    </div>
+  </main>
+
+  <script>
+    const car = JSON.parse(localStorage.getItem("selectedCar"));
+    const detail = document.getElementById("carDetail");
+
+    if (car) {
+      detail.innerHTML = `
+        <img src="${car.img}" alt="${car.name}" class="detail-img" />
+        <div class="detail-info">
+          <h1>${car.name}</h1>
+          <p>${car.desc}</p>
+          <p class="car-price">Price: ${car.price}</p>
+        </div>
+      `;
+    } else {
+      detail.innerHTML = "<p>Car not found. Please go back and select a car.</p>";
+    }
+  </script>
+</body>
+</html>
